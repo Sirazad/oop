@@ -13,12 +13,20 @@ class Farm {
     }
 
     void feedAnimals() {
-//    feladata: A farmon lévő összes állat megetetése.
+        for (Animal animal : animals) {
+            animal.feed();
+        }
     }
 
-
     void butcher(Butcher butcher) {
-    // összes levágható állat eltávolítása a farmon lévő állatokat tartalmazó listából
+        Butcher theButcher = new Butcher();
+        List<Animal> animalsToButcher = new ArrayList<>();
+        for (Animal animal : animals) {
+            if (theButcher.canButcher(animal)) {
+                animalsToButcher.add(animal);
+            }
+        }
+        animals.removeAll(animalsToButcher);
     }
 
     boolean isEmpty() {
@@ -28,11 +36,14 @@ class Farm {
         return animals;
     }
     List<String> getStatus() {
-     //állatok státuszait tartalmazó listát ad vissza,
-        // a farmon lévő összes állatra vonatkozóan.
-        //"There is a <állat mérete> sized <állat típusa (pig/cattle)> in the farm."
-        return null;
+        List<String> farmStatus = new ArrayList();
+
+        for (Animal animal : animals) {
+            farmStatus.add(animal.toString());
+        }
+        return farmStatus;
     }
+
 
 
 }
