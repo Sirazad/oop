@@ -11,5 +11,4 @@ class Butcher {
             return false;
         }
     }
-
 }

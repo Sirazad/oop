@@ -3,7 +3,6 @@ package com.codecool.farm.animal;
 public abstract class Animal {
     protected int size = 0;
 
-
     public int getSize() {
         return size;
     }
@@ -19,5 +18,4 @@ public abstract class Animal {
                 .append(" in the farm.");
         return singleAnimalLine.toString();
     }
-
 }

@@ -19,10 +19,9 @@ class Farm {
     }
 
     void butcher(Butcher butcher) {
-        Butcher theButcher = new Butcher();
         List<Animal> animalsToButcher = new ArrayList<>();
         for (Animal animal : animals) {
-            if (theButcher.canButcher(animal)) {
+            if (butcher.canButcher(animal)) {
                 animalsToButcher.add(animal);
             }
         }
@@ -30,12 +29,14 @@ class Farm {
     }
 
     boolean isEmpty() {
-      return (animals.isEmpty())? true : false;
+      return animals.isEmpty();
     }
-    List<Animal> getAnimals() {
+
+    public List<Animal> getAnimals() {
         return animals;
     }
-    List<String> getStatus() {
+
+    public List<String> getStatus() {
         List<String> farmStatus = new ArrayList();
 
         for (Animal animal : animals) {
@@ -43,7 +44,4 @@ class Farm {
         }
         return farmStatus;
     }
-
-
-
 }
